@@ -1,4 +1,4 @@
-name: Build Inveight
+name: Build Inveigh
  
 on: [push]
  
@@ -25,13 +25,13 @@ jobs:
         Start-Process -Wait sdksetup.exe -ArgumentList "/q", "/norestart", "/features", "OptionId.WindowsDesktopSoftwareDevelopmentKit", "OptionId.NetFxSoftwareDevelopmentKit"
      
     - name: Restore NuGet Packages
-      run: nuget restore Inveight.sln
+      run: nuget restore Inveigh.sln
  
     - name: Build App
-      run: msbuild Inveight.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+      run: msbuild Inveigh.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: Inveight
+        name: Inveigh
         path: "D:/a/newbuild/"
